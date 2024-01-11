@@ -1,8 +1,18 @@
-- name: Default
+- name: default
   kind: postgres
   configuration:
     connection_info:
-      database_url: postgresql://read_only_user:readonlyuser@35.236.11.122:5432/growth-docs-data-layer-1
+      database_url:
+        from_env: PG_DATABASE_URL
       isolation_level: read-committed
       use_prepared_statements: false
-  tables: "!include Default/tables/tables.yaml"
+  tables: "!include default/tables/tables.yaml"
+- name: test
+  kind: postgres
+  configuration:
+    connection_info:
+      database_url:
+        from_env: PG_DATABASE_URL
+      isolation_level: read-committed
+      use_prepared_statements: false
+  tables: "!include test/tables/tables.yaml"
