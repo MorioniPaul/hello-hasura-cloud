@@ -1,0 +1,2 @@
+- "!include public_test_table.yaml"
+- "!include public_test_table_2.yaml"
